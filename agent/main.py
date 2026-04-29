@@ -173,6 +173,8 @@ def advance(req: AnswerRequest):
             axis: get_dominant(vals)
             for axis, vals in session.signals.items()
         }
+        # Fix display labels in interpolated text
+        next_node["text"] = next_node["text"].replace("selfcentric", "self-centric")
 
     return {
         "session": session.dict(),
